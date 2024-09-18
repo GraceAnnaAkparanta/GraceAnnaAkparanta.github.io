@@ -1,0 +1,128 @@
+Hello World
+
+<h1> This is a headline. </h1> <!-- can you see this ?  -->
+
+<p> this is a paragraph! </p>
+
+<article>This is a article. </article>
+
+<p>This paragraph has <em> text that's emphasized</em> for effect. </p>
+
+<article>
+    <h1>This is a headline.</h1>
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+    <p>This third paragraph has <em> text that's emphasized</em> for effect.</p>
+</article>
+
+<h1>1st level headline</h1>
+<h2>2nd level headline</h2>
+<h3>3rd level headline</h3>
+<h4>4th level headline</h4>
+<h5>5th level headline</h5>
+<h6>6th level headline</h6>
+
+<p>I'm <em>trying</em> to settle in my feelings of <i>discomfort</i></p>
+
+<h1><strong>Warning!</strong> I am sensitve to smells.</h1>
+
+<h2><strong>Slat and Vinegar</strong> chips are my fav.</h2>
+
+<h3><b>Complete homework:</b></h3>
+
+<ul>
+    <li>Calculus three Webwork</li>
+    <li>Computer Science 446 assignment one</li>
+    <li>COmputer Science 330 review python</li>
+    <li>Computer Scienece 382 review C++</li>
+</ul>
+
+<ol>
+    <li>In a bowl, mix all the dry ingredients.</li>
+    <li>In another bowl, mix together the rest.</li>
+    <li>Wisk together.</li>
+    <li>Wait 5 mintues.</li>
+    <li>Cook the pancakes.</li>
+</ol>
+
+<dl>
+    <dt>term</dt>
+    <dd>definition</dd>
+    <dd>additional definition</dd>
+    <dt>second term</dt>
+    <dd>definition of second term</dd>
+    <dt>third term</dt>
+    <dd>definition of third term</dd>
+</dl>
+
+<blockquote>
+    <ul>
+        <li>
+            block context
+        </li>
+    </ul>
+</blockquote>
+
+<ul>
+    <li><q>Inline phrases.</q></li>
+</ul>
+
+<p><q>We've gone from having 21 elements in HTML tags, that first document,
+        to having 100 more elements now, and yet it's still the same language.
+        I find that amazing. It's still the smae language that was created 25 years ago.
+        It's grown an extra 100 elements in there,
+        and yet it's still the same language.</q></p>
+
+<cite>- Jeremy Keith </cite>
+
+<p><time>September 14, 2024</time></p>
+
+<time datetime="2025-06-10">October 6, 2025</time>
+
+<p>
+    We can write <code>{color:green;}</code>
+    in our CSS, and it will apply to anything marked up as an<code> &lt;H4&gt; </code>element.
+</p>
+
+<p>
+    <q>Always forgive your enemies;<br>
+        nothing annoys them so much.
+    </q>
+</p>
+
+<cite>Oscar Wilde</cite>
+
+<p>H<sub>2</sub>O</p>
+<p>Something that has a footnote.<sup>2</sup></p>
+
+<small>© 2222 destruction company</small>
+
+<p class="intro">
+    This is the introduction. The class Attribute.
+</p>
+
+<p class"intro" id="article-intro">
+    This is the introduction. The id Attribute.
+</p>
+
+<p lang="en-Gb">
+    This paragraph is in British English. The Lang Attribute.
+</p>
+
+<p dir="ltr"> This is the dir attribute.</p>
+
+<a href="https://www.cuny.edu/"> click </a>
+
+<p> to make a link, we use the a element, a stands for anchor. </p>
+<p>As a child <a href="https://gamesfrog.com/games/gba/disney-princess#google_vignette">this</a> was my favorite game
+    to play.</p>
+
+<figure>
+    <p><a
+            href="https://www.dealnews.com/features/Who-is-that-Amazon-Robot-Meet-Danbo-/1092793.html#:~:text=Believe%20it%20or%20not%2C%20Danbo,to%20be%20a%20school%20project.">
+            <img src="https://static.wikia.nocookie.net/845f04c0-7eb7-4096-8ca8-d193770559d7"
+                alt="Danbo, the sad liitle man made out of amazon box getting rained on. " width="400" height="300">
+        </a>
+    <figcaption>The sad little box in the rain.</figcaption>
+    </p>
+</figure>
