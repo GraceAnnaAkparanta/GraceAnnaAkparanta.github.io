@@ -24,7 +24,7 @@ Hello World
 
 <p>I'm <em>trying</em> to settle in my feelings of <i>discomfort</i></p>
 
-<h1><strong>Warning!</strong> I am sensitve to smells.</h1>
+<h1><strong>Warning!</strong> I am sensitive to smells.</h1>
 
 <h2><strong>Slat and Vinegar</strong> chips are my fav.</h2>
 
@@ -33,15 +33,15 @@ Hello World
 <ul>
     <li>Calculus three Webwork</li>
     <li>Computer Science 446 assignment one</li>
-    <li>COmputer Science 330 review python</li>
-    <li>Computer Scienece 382 review C++</li>
+    <li>Computer Science 330 review python</li>
+    <li>Computer Science 382 review C++</li>
 </ul>
 
 <ol>
     <li>In a bowl, mix all the dry ingredients.</li>
     <li>In another bowl, mix together the rest.</li>
     <li>Wisk together.</li>
-    <li>Wait 5 mintues.</li>
+    <li>Wait 5 minutes.</li>
     <li>Cook the pancakes.</li>
 </ol>
 
@@ -69,7 +69,7 @@ Hello World
 
 <p><q>We've gone from having 21 elements in HTML tags, that first document,
         to having 100 more elements now, and yet it's still the same language.
-        I find that amazing. It's still the smae language that was created 25 years ago.
+        I find that amazing. It's still the same language that was created 25 years ago.
         It's grown an extra 100 elements in there,
         and yet it's still the same language.</q></p>
 
