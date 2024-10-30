@@ -88,6 +88,8 @@
         }
         document.writeln(name + ",  Welcome to the Delululemon Store!\nThank you for ordering!");
 
+        // Read in the variables
+        item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
 
         num = window.prompt("Please enter the number of " + item + "'s you'll like!", "1");
         // convert numbers from string to integers
@@ -96,9 +98,6 @@
         while (num_item >= 1 && num_item <= 99) {
             alert("Number of " + item + "'s you want are " + num_item);
         }
-
-        // Read in the variables
-        item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
 
         // display 
         // document.writeln("<h4>Hello, " + name + ", welcome to JavaScript programming!</h4>");
