@@ -74,8 +74,23 @@
         var num,
             num_item;
 
-        // Read in the variables
+        now = new Date();
+        hour = now.getHours();
+
         name = window.prompt("Please enter your name", " ");
+        //interesting document.writeln is not used~
+        if (hour < 12) {
+            document.write("<h1> Good Morning ")
+        } else if (hour < 18) {
+            document.write("<h1> Good Afternoon ")
+        } else {
+            document.write("<h1> Good Evening ")
+        }
+        document.writeln(name + ",  Welcome to the Delululemon Store!")
+
+
+
+        // Read in the variables
         item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
         num = window.prompt("Please enter the number of " + item + "'s you'll like!", "0");
 
