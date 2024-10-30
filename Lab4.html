@@ -71,12 +71,22 @@
 
         var name;
         var item;
+        var num,
+            num_item;
 
+        // Read in the variables
         name = window.prompt("Please enter your name", " ");
         item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
+        num = window.prompt("Please enter the number of " + item + "'s you'll like!", "0");
 
+        // convert numbers from string to integers
+        num_item = parseInt(num);
+
+        // display 
         document.writeln("<h4>Hello, " + name + ", welcome to JavaScript programming!</h4>");
         document.writeln("<h4>Hi " + name + ", you'll like to buy: " + item + " right?</h4>");
+
+        alert("Number of " + item + "'s you want are " + num_item);
     </script>
 
     <hr>
