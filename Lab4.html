@@ -70,10 +70,13 @@
     <script type="text/javascript">
 
         var name;
+        var item;
 
         name = window.prompt("Please enter your name", " ");
+        item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
 
-        document.writeln("<h1>Hello, " + name + ", welcome to JavaScript programming!</h1>");
+        document.writeln("<h4>Hello, " + name + ", welcome to JavaScript programming!</h4>");
+        document.writeln("<h4>Hi " + name + ", you'll like to buy: " + item + " right?</h4>");
     </script>
 
     <hr>
