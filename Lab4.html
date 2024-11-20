@@ -69,14 +69,15 @@
 
     <script type="text/javascript">
 
-        var item;
-        var num, num_item;
+        var item, name, num, num_item;
 
-        var name;
-        now = new Date();
-        hour = now.getHours();
+        // Get current date and time
+        var now = new Date();
+        var hour = now.getHours();
+
 
         name = window.prompt("Please enter your name", " ");
+
         if (hour < 12) {
             document.write("<h5> Good Morning ")
         } else if (hour < 18) {
@@ -103,8 +104,11 @@
             }
         } while (num_item < 1 || num_item > 99);
 
-        document.writeln("<br> lulu-warrior, you would like to buy " + num_item + " " + item + "(s).");
+        var deliveryday = new Date();
+        deliveryday.setDate(now.getDay() + 7);
 
+        document.writeln("<br><br> lulu-warrior, you would like to buy " + num_item + " " + item + "(s).");
+        document.writeln("Your " + item + "(s) will be delivered by " + day);
     </script>
     <!-- 
     <hr>
