@@ -93,20 +93,18 @@
         // Read in the variables
         item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
 
-        num = window.prompt("Please enter the number of " + item + "'s 1-99", " ");
-
-        // convert numbers from string to integers
-        num_item = parseInt(num);
-
         /* while loop will not work since it will run an infinite # of time 
         or do while for quantity 1-99
           */
         do {
+            num = window.prompt("Please enter the number of " + item + "'s 1-99", " ");
+
+            // convert numbers from string to integers
+            num_item = parseInt(num);
+
             if (num_item < 1 || num_item > 99) {
                 alert("Not possible! Enter a number between 1 and 99.");
             }
-            window.prompt("Number of " + item + "'s you want are " + num_item);
-
         } while (num_item < 1 || num_item > 99);
 
         // display 
