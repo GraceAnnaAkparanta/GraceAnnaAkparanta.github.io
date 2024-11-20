@@ -74,9 +74,20 @@
         var num,
             num_item;
 
-        name = window.prompt("Please enter your name", "");
 
+        now = new Date();
+        hour = now.getHours();
+
+        name = window.prompt("Please enter your name", " ");
+        if (hour < 12) {
+            document.write("<h1> Good Morning ")
+        } else if (hour < 18) {
+            document.write("<h1> Good Afternoon ")
+        } else {
+            document.write("<h1> Good Evening ")
+        }
         document.writeln(name + ",  Welcome to the Delululemon Store!\nThank you for ordering!");
+
 
         // Read in the variables
         item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
@@ -96,22 +107,6 @@
         } while (num_item < 1 || num_item > 99);
 
         document.writeln("<br>Hi " + name + ", you would like to buy " + num_item + " " + item + "(s), right?");
-
-
-        now = new Date();
-        hour = now.getHours();
-
-        // interesting document.writeln is not used~
-
-        if (hour < 12) {
-            document.write("<h1> Good Morning ")
-        } else if (hour < 18) {
-            document.write("<h1> Good Afternoon ")
-        } else {
-            document.write("<h1> Good Evening ")
-        }
-        document.writeln("<br>" + name + "Thank you for your purchase, lulu warrior!");
-
 
     </script>
 
