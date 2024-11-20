@@ -78,13 +78,13 @@
 
         name = window.prompt("Please enter your name", " ");
         if (hour < 12) {
-            document.write("<h5> Good Morning ")
+            document.write("<h5> Good Morning </h5>")
         } else if (hour < 18) {
-            document.write("<h5> Good Afternoon ")
+            document.write("<h5> Good Afternoon </h5>")
         } else {
-            document.write("<h5> Good Evening ")
+            document.write("<h5> Good Evening </h5>")
         }
-        document.writeln(name + ",  welcome to the Delululemon Store!\nThank you for ordering!</h5>");
+        document.writeln("<h5>" + name + ",  welcome to the Delululemon Store!\nThank you for ordering!</h5>");
 
         // Read in the variables
         item = window.prompt("Please enter the item you'll like to purchase, " + name, " ");
