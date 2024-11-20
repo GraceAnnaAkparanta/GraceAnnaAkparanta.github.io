@@ -78,6 +78,7 @@
         hour = now.getHours();
 
         name = window.prompt("Please enter your name", "");
+
         //interesting document.writeln is not used~
         if (hour < 12) {
             document.write("<h1> Good Morning ")
@@ -101,11 +102,16 @@
           */
         do {
             window.prompt("Number of " + item + "'s you want are " + num_item);
+
+            if (num_item < 1 || num_item > 99) {
+                alert("Not possible! Enter a number between 1 and 99.");
+            }
         }
         while (num_item < 1 || num_item > 99);
 
         // display 
         // document.writeln("<h4>Hello, " + name + ", welcome to JavaScript programming!</h4>");
+
         document.writeln("<h4>Hi " + name + ", you'll like to buy: " + item + " right?</h4>");
     </script>
 
