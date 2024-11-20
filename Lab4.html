@@ -104,16 +104,16 @@
             }
         } while (num_item < 1 || num_item > 99);
 
-        var deliveryday = new Date();
-        deliveryday.setDate(now.getDay() + 7);
+        // var now = new Date();
+        now.setDate(now.getDay() + 7);
 
         // Format delivery date as a readable string
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        var formattedDeliveryDay = deliveryday.toLocaleDateString("en-US", options);
+        var formattedDeliveryDay = now.toLocaleDateString("en-US", options);
 
 
         document.writeln("<br><br> lulu-warrior, you would like to buy " + num_item + " " + item + "(s).");
-        document.writeln("<br>Your " + item + "(s) will be delivered by<strong>" + formattedDeliveryDay + "</strong>.");
+        document.writeln("<br>Your " + item + "(s) will be delivered by<strong> " + formattedDeliveryDay + "</strong>.");
     </script>
     <!-- 
     <hr>
