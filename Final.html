@@ -57,7 +57,7 @@
         </div>
     </nav>
 
-    <!-- Home Page Content -->
+    <!-- Home Page -->
     <div class="container">
         <div class="jumbotron text-center my-4">
             <h1>Welcome to "Where's the ISS?"</h1>
@@ -65,14 +65,14 @@
         </div>
     </div>
 
-    <!-- Content for Location Page -->
+    <!-- Location Page -->
     <div class="container" id="location" style="display:none;">
         <h2>Current ISS Location</h2>
         <button class="btn btn-primary" onclick="fetchISSLocation()">Fetch Location</button>
         <div id="iss-location" class="mt-4"></div>
     </div>
 
-    <!-- Content for Coordinates Page -->
+    <!-- Coordinates Page -->
     <div class="container" id="coordinates" style="display:none;">
         <h2>Search ISS by Coordinates</h2>
         <form onsubmit="fetchCoordinatesInfo(); return false;">
