@@ -2,92 +2,107 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where's the ISS?</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script>
-        // Fetch ISS current location
-        async function fetchISSLocation() {
-            const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
-            const data = await response.json();
-            document.getElementById("iss-location").innerHTML = `
-                <p>Latitude: ${data.latitude}</p>
-                <p>Longitude: ${data.longitude}</p>
-                <p>Altitude: ${data.altitude} km</p>
-                <p>Velocity: ${data.velocity} km/h</p>
-            `;
-        }
-
-        // Fetch ISS data based on coordinates
-        async function fetchCoordinatesInfo() {
-            const lat = document.getElementById("latitude").value;
-            const lon = document.getElementById("longitude").value;
-
-            const response = await fetch(`https://api.wheretheiss.at/v1/coordinates/${lat},${lon}`);
-            const data = await response.json();
-            document.getElementById("coordinates-info").innerHTML = `
-                <p>Requested Latitude: ${data.latitude}</p>
-                <p>Requested Longitude: ${data.longitude}</p>
-                <p>Timezone: ${data.timezone_id}</p>
-                <p>Country: ${data.country_code}</p>
-            `;
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="https://graceannaakparanta.github.io/Final.html">Where's the ISS?</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="location.html">Current Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="coordinates.html">Search by Coordinates</a></li>
-                </ul>
-            </div>
+        <a class="navbar-brand" href="https://graceannaakparanta.github.io/Final.html"> Where's the ISS?</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <li class="nav-item"><a class="nav-link active"
+                        href="https://graceannaakparanta.github.io/location.html">Current Location</a></li>
+                <li class="nav-item"><a class="nav-link"
+                        href="https://graceannaakparanta.github.io/coordinates.html">Search by Coordinates</a></li>
+                </li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Home Page -->
-    <div class="container">
-        <div class="jumbotron text-center my-4">
-            <h1>Welcome to "Where's the ISS?"</h1>
-            <p>Discover the current location of the International Space Station and more.</p>
-        </div>
+    <!-- Welcome Section -->
+    <div class="container text-center my-4">
+        <h1>Welcome to "Where's the ISS?"</h1>
+        <p>Discover the current location of the International Space Station and more!</p>
     </div>
 
-    <!-- Location Page -->
-    <div class="container" id="location" style="display:none;">
+    <!-- Current Location Section -->
+    <div class="container" id="location-section" style="display:none;">
         <h2>Current ISS Location</h2>
-        <button class="btn btn-primary" onclick="fetchISSLocation()">Fetch Location</button>
+        <button class="btn btn-primary" onclick="getISSLocation()">Fetch Location</button>
         <div id="iss-location" class="mt-4"></div>
     </div>
 
-    <!-- Coordinates Page -->
-    <div class="container" id="coordinates" style="display:none;">
+    <!-- Coordinates Section -->
+    <div class="container" id="coordinates-section" style="display:none;">
         <h2>Search ISS by Coordinates</h2>
-        <form onsubmit="fetchCoordinatesInfo(); return false;">
+        <form onsubmit="getCoordinatesInfo(); return false;">
             <div class="mb-3">
-                <label for="latitude" class="form-label">Latitude</label>
+                <label for="latitude" class="form-label">Latitude:</label>
                 <input type="text" class="form-control" id="latitude" required>
             </div>
             <div class="mb-3">
-                <label for="longitude" class="form-label">Longitude</label>
+                <label for="longitude" class="form-label">Longitude:</label>
                 <input type="text" class="form-control" id="longitude" required>
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
         <div id="coordinates-info" class="mt-4"></div>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Fetch ISS current location
+        async function getISSLocation() {
+            try {
+                const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
+                if (!response.ok) {
+                    throw new Error("Could not fetch ISS location data.");
+                }
+
+                const data = await response.json();
+                document.getElementById("iss-location").innerHTML = `
+                    <p><strong>Latitude:</strong> ${data.latitude}</p>
+                    <p><strong>Longitude:</strong> ${data.longitude}</p>
+                    <p><strong>Altitude:</strong> ${data.altitude} km</p>
+                    <p><strong>Velocity:</strong> ${data.velocity} km/h</p>
+                `;
+            } catch (error) {
+                document.getElementById("iss-location").innerHTML = `<p style="color: red;">${error.message}</p>`;
+            }
+        }
+
+        // Fetch ISS data based on coordinates
+        async function getCoordinatesInfo() {
+            const lat = document.getElementById("latitude").value;
+            const lon = document.getElementById("longitude").value;
+
+            try {
+                const response = await fetch(`https://api.wheretheiss.at/v1/coordinates/${lat},${lon}`);
+                if (!response.ok) {
+                    throw new Error("Error fetching data for coordinates.");
+                }
+
+                const data = await response.json();
+                document.getElementById("coordinates-info").innerHTML = `
+                    <p><strong>Latitude:</strong> ${data.latitude}</p>
+                    <p><strong>Longitude:</strong> ${data.longitude}</p>
+                    <p><strong>Timezone:</strong> ${data.timezone_id}</p>
+                    <p><strong>Country:</strong> ${data.country_code}</p>
+                `;
+            } catch (error) {
+                document.getElementById("coordinates-info").innerHTML = `<p style="color: red;">${error.message}</p>`;
+            }
+        }
+    </script>
 </body>
 
 </html>
