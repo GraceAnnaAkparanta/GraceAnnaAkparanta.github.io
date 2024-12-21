@@ -10,7 +10,6 @@
 
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="https://graceannaakparanta.github.io/Final.html"> Where's the ISS?</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -26,7 +25,6 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
     <div class="container my-4">
         <h1>Current ISS Location</h1>
         <p>Click the button below to see the current location of the International Space Station (ISS).</p>
@@ -36,7 +34,7 @@
 
     <!-- JavaScript -->
     <script>
-        // Function to get the ISS location
+
         async function getISSLocation() {
             try {
                 const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
@@ -45,7 +43,7 @@
                 }
 
                 const data = await response.json();
-                // Display the ISS location data
+
                 document.getElementById("iss-location").innerHTML = `
                     <p><strong>Latitude:</strong> ${data.latitude}</p>
                     <p><strong>Longitude:</strong> ${data.longitude}</p>
@@ -53,7 +51,6 @@
                     <p><strong>Velocity:</strong> ${data.velocity} km/h</p>
                 `;
             } catch (error) {
-                // Display an error message
                 document.getElementById("iss-location").innerHTML = `<p style="color: red;">${error.message}</p>`;
             }
         }
