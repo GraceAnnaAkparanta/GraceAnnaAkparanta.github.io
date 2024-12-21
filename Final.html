@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Where's the ISS?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        // Fetch ISS current location
+        async function fetchISSLocation() {
+            const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
+            const data = await response.json();
+            document.getElementById("iss-location").innerHTML = `
+                <p>Latitude: ${data.latitude}</p>
+                <p>Longitude: ${data.longitude}</p>
+                <p>Altitude: ${data.altitude} km</p>
+                <p>Velocity: ${data.velocity} km/h</p>
+            `;
+        }
+
+        // Fetch ISS data based on coordinates
+        async function fetchCoordinatesInfo() {
+            const lat = document.getElementById("latitude").value;
+            const lon = document.getElementById("longitude").value;
+
+            const response = await fetch(`https://api.wheretheiss.at/v1/coordinates/${lat},${lon}`);
+            const data = await response.json();
+            document.getElementById("coordinates-info").innerHTML = `
+                <p>Requested Latitude: ${data.latitude}</p>
+                <p>Requested Longitude: ${data.longitude}</p>
+                <p>Timezone: ${data.timezone_id}</p>
+                <p>Country: ${data.country_code}</p>
+            `;
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Where's the ISS?</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Current Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="coordinates.html">Search by Coordinates</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page Content -->
+    <div class="container">
+        <div class="jumbotron text-center my-4">
+            <h1>Welcome to "Where's the ISS?"</h1>
+            <p>Discover the current location of the International Space Station and more.</p>
+        </div>
+    </div>
+
+    <!-- Content for Location Page -->
+    <div class="container" id="location" style="display:none;">
+        <h2>Current ISS Location</h2>
+        <button class="btn btn-primary" onclick="fetchISSLocation()">Fetch Location</button>
+        <div id="iss-location" class="mt-4"></div>
+    </div>
+
+    <!-- Content for Coordinates Page -->
+    <div class="container" id="coordinates" style="display:none;">
+        <h2>Search ISS by Coordinates</h2>
+        <form onsubmit="fetchCoordinatesInfo(); return false;">
+            <div class="mb-3">
+                <label for="latitude" class="form-label">Latitude</label>
+                <input type="text" class="form-control" id="latitude" required>
+            </div>
+            <div class="mb-3">
+                <label for="longitude" class="form-label">Longitude</label>
+                <input type="text" class="form-control" id="longitude" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div id="coordinates-info" class="mt-4"></div>
+    </div>
+</body>
+
+</html>
